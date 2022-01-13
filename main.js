@@ -11,8 +11,41 @@ const jobTypes = {
 
 // Your code will go here
 
+class CrewMember {
+  constructor( name, job, specialSkill, ship = null) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = ship;
+  }
 
+  enterShip(shipName) {
+    this.ship = shipName;
+    shipName.crew.push(this);
+  }
+}
 
+class Ship{
+  constructor( name, type, ability, crew = []){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = crew;
+  }
+
+  missionStatement() {
+
+    // if test pass I should refactor to the line below and try again ...
+  //  this.crew.length === 0 ? "Can't perform a mission yet." : this.ability;
+  
+  if (this.crew.length === 0) {
+    return "Can't perform a mission yet."
+  } else {
+    return this.ability
+  }
+    
+  }
+}
 
 
 
